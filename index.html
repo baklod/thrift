@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modernisasyon Apparel - Premium Men's Clothing</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #1e3a8a;
+        --secondary-color: #f97316;
+        --accent-color: #0ea5e9;
+        --light-gray: #f8fafc;
+        --medium-gray: #e2e8f0;
+        --dark-gray: #0f172a;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--dark-gray);
+        overflow-x: hidden;
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--dark-gray);
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: var(--secondary-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        background-image: linear-gradient(
+            rgba(15, 23, 42, 0.7),
+            rgba(15, 23, 42, 0.7)
+          ),
+          url("images/hero.png");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        padding: 150px 0;
+        margin-bottom: 50px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero:before {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(249, 115, 22, 0.15);
+        z-index: 0;
+      }
+
+      .hero h1 {
+        font-weight: 700;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Buttons */
+      .btn-primary-custom {
+        background-color: var(--secondary-color);
+        border: none;
+        color: var(--white);
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+
+      .btn-primary-custom:hover {
+        background-color: #ea580c;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
+      }
+
+      .btn-secondary-custom {
+        background-color: transparent;
+        border: 2px solid var(--white);
+        color: var(--white);
+        padding: 10px 25px;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: all 0.3s;
+        margin-left: 15px;
+      }
+
+      .btn-secondary-custom:hover {
+        background-color: var(--white);
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      /* Categories */
+      .categories {
+        padding: 60px 0;
+        background-color: var(--light-gray);
+      }
+
+      .category-item {
+        background-color: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        margin-bottom: 30px;
+        text-align: center;
+        border: 1px solid transparent;
+      }
+
+      .category-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 20px rgba(15, 23, 42, 0.15);
+        border-color: rgba(249, 115, 22, 0.3);
+      }
+
+      .category-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .category-item h4 {
+        padding: 20px 0 10px;
+        font-weight: 600;
+      }
+
+      /* Featured Products */
+      .featured-products {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-weight: 700;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-title h2:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background-color: var(--secondary-color);
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .product-card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 25px rgba(15, 23, 42, 0.15);
+      }
+
+      .product-img {
+        height: 250px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .product-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-top: 10px;
+      }
+
+      .product-price {
+        color: var(--secondary-color);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 10px 0;
+      }
+
+      .ratings {
+        color: #fbbf24;
+        margin-bottom: 15px;
+      }
+
+      /* Video Section */
+      .video-section {
+        padding: 80px 0;
+        background-color: #0f172a;
+        background-image: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+        color: var(--white);
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .video-content {
+        padding: 20px;
+      }
+
+      /* Newsletter */
+      .newsletter {
+        padding: 80px 0;
+        background-color: var(--light-gray);
+      }
+
+      .newsletter-form {
+        max-width: 600px;
+        margin: 30px auto 0;
+        position: relative;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+        padding: 15px 170px 15px 20px;
+        border-radius: 50px;
+        border: 1px solid var(--medium-gray);
+        font-size: 1rem;
+      }
+
+      .newsletter-form button {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        padding: 10px 30px;
+        border-radius: 50px;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color) 0%,
+          #fb923c 100%
+        );
+        color: var(--white);
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+        box-shadow: 0 4px 10px rgba(249, 115, 22, 0.25);
+      }
+
+      .newsletter-form button:hover {
+        background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+        box-shadow: 0 6px 15px rgba(249, 115, 22, 0.35);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--dark-gray);
+        color: var(--white);
+        padding: 70px 0 20px;
+      }
+
+      .footer-logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .footer-text {
+        margin-bottom: 30px;
+        color: #aaa;
+      }
+
+      .footer h5 {
+        font-weight: 600;
+        margin-bottom: 25px;
+        font-size: 1.2rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+      }
+
+      .social-links {
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: var(--white);
+        margin-right: 10px;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+        color: #aaa;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 100px 0;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 2.3rem;
+        }
+
+        .hero p {
+          margin: 0 auto 30px;
+        }
+
+        .btn-secondary-custom {
+          margin-left: 0;
+          margin-top: 15px;
+        }
+
+        .video-content {
+          text-align: center;
+          margin-top: 30px;
+        }
+      }
+
+      /* Footer mobile responsiveness */
+      @media (max-width: 768px) {
+        .footer {
+          padding: 40px 0 20px;
+        }
+
+        .footer-logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .footer-text {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .social-links {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .footer h5 {
+          text-align: center;
+          margin-top: 30px;
+        }
+
+        .footer-links {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .footer-links li {
+          margin-bottom: 12px;
+        }
+
+        .copyright {
+          margin-top: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .footer {
+          padding: 30px 0 15px;
+        }
+
+        .footer-logo {
+          font-size: 1.5rem;
+        }
+
+        .social-links a {
+          width: 35px;
+          height: 35px;
+          line-height: 35px;
+          margin: 0 5px;
+        }
+
+        .footer-links li {
+          margin-bottom: 10px;
+          font-size: 0.9rem;
+        }
+
+        .copyright p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Modernisasyon Apparel</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Collections</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+          <div class="ms-3 d-flex">
+            <a href="#" class="nav-link me-3"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-link me-3"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >3</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h1>Elevate Your Style Game</h1>
+            <p>
+              Discover premium men's apparel featuring modern designs, quality
+              fabrics, and exceptional craftsmanship for the confident modern
+              man.
+            </p>
+            <div class="d-flex flex-wrap">
+              <a href="#" class="btn btn-primary-custom">Shop Now</a>
+              <a href="#" class="btn btn-secondary-custom">View Collections</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+      <div class="container">
+        <div class="section-title">
+          <h2>Shop By Category</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <div class="category-item">
+              <img src="images/tshirt.png" alt="T-Shirts" />
+              <h4>T-Shirts</h4>
+              <a href="#" class="btn btn-primary-custom mb-4">Explore</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="category-item">
+              <img src="images/hoodies.png" alt="Hoodies" />
+              <h4>Hoodies</h4>
+              <a href="#" class="btn btn-primary-custom mb-4">Explore</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="category-item">
+              <img src="images/pants.png" alt="Pants" />
+              <h4>Pants</h4>
+              <a href="#" class="btn btn-primary-custom mb-4">Explore</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <div class="category-item">
+              <img src="images/accessories.png" alt="Accessories" />
+              <h4>Accessories</h4>
+              <a href="#" class="btn btn-primary-custom mb-4">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Products</h2>
+        </div>
+        <div class="row">
+          <!-- Product 1 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/polo.png"
+                class="card-img-top product-img"
+                alt="Premium Polo Shirt"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Premium Cotton Polo</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="text-muted ms-2">(24)</span>
+                </div>
+                <div class="product-price">$39.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/urban.png"
+                class="card-img-top product-img"
+                alt="Urban Hoodie"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Urban Street Hoodie</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span class="text-muted ms-2">(42)</span>
+                </div>
+                <div class="product-price">$64.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/chino.png"
+                class="card-img-top product-img"
+                alt="Slim Fit Pants"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Slim Fit Chino Pants</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-muted ms-2">(18)</span>
+                </div>
+                <div class="product-price">$49.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/graphic.png"
+                class="card-img-top product-img"
+                alt="Graphic T-Shirt"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Graphic Print T-Shirt</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-muted ms-2">(31)</span>
+                </div>
+                <div class="product-price">$29.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/denim.png"
+                class="card-img-top product-img"
+                alt="Denim Jacket"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Classic Denim Jacket</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="text-muted ms-2">(27)</span>
+                </div>
+                <div class="product-price">$79.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/cargo.png"
+                class="card-img-top product-img"
+                alt="Cargo Pants"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Modern Cargo Pants</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-muted ms-2">(15)</span>
+                </div>
+                <div class="product-price">$54.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/zip.png"
+                class="card-img-top product-img"
+                alt="Zip-Up Hoodie"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Essential Zip-Up Hoodie</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span class="text-muted ms-2">(39)</span>
+                </div>
+                <div class="product-price">$59.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <img
+                src="images/coton.png"
+                class="card-img-top product-img"
+                alt="Premium T-Shirt"
+              />
+              <div class="card-body">
+                <h5 class="product-title">Premium Cotton T-Shirt</h5>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-muted ms-2">(22)</span>
+                </div>
+                <div class="product-price">$34.99</div>
+                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-primary-custom">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="video-container">
+              <iframe
+                src="videos/ads.mp4"
+                title="Fashion Collection Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+          <div class="col-lg-6 video-content">
+            <h2 class="mb-4">See Our Latest Collection In Action</h2>
+            <p class="mb-4">
+              Experience the exceptional quality and style of our latest men's
+              fashion collection. Designed for the modern man who values both
+              comfort and aesthetics.
+            </p>
+            <a href="#" class="btn btn-primary-custom">Shop The Collection</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container text-center">
+        <div class="section-title">
+          <h2>Join Our Newsletter</h2>
+        </div>
+        <p>
+          Subscribe to our newsletter and get 10% off your first purchase plus
+          updates on new arrivals and exclusive offers.
+        </p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo">Modernisasyon Apparel</div>
+            <p class="footer-text">
+              Elevating men's fashion with premium quality, modern design, and
+              exceptional style for the confident modern man.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Shop Categories</h5>
+            <ul class="footer-links">
+              <li><a href="#">T-Shirts</a></li>
+              <li><a href="#">Hoodies</a></li>
+              <li><a href="#">Pants</a></li>
+              <li><a href="#">Jackets</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact Us</h5>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street,
+                NY 10001
+              </li>
+              <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+              <li>
+                <i class="fas fa-envelope me-2"></i> info@modernisasyon.com
+              </li>
+              <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM to 5PM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Modernisasyon Apparel. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
