@@ -537,17 +537,36 @@
           <div class="ms-3 d-flex">
             <a href="#" class="nav-link me-3"><i class="fas fa-search"></i></a>
             <a href="#" class="nav-link me-3"><i class="fas fa-user"></i></a>
-            <a href="#" class="nav-link position-relative">
+            <a href="#" class="nav-link position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
               <i class="fas fa-shopping-cart"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                >3</span
-              >
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
             </a>
           </div>
         </div>
       </div>
     </nav>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="cartItems"></div>
+            <div class="text-end mt-3">
+              <h5>Total: $<span id="cartTotal">0.00</span></h5>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary-custom">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -634,7 +653,7 @@
                   <span class="text-muted ms-2">(24)</span>
                 </div>
                 <div class="product-price">$39.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Premium Cotton Polo', 39.99, 'images/polo.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -658,7 +677,7 @@
                   <span class="text-muted ms-2">(42)</span>
                 </div>
                 <div class="product-price">$64.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Urban Street Hoodie', 64.99, 'images/urban.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -682,7 +701,7 @@
                   <span class="text-muted ms-2">(18)</span>
                 </div>
                 <div class="product-price">$49.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Slim Fit Chino Pants', 49.99, 'images/chino.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -706,7 +725,7 @@
                   <span class="text-muted ms-2">(31)</span>
                 </div>
                 <div class="product-price">$29.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Graphic Print T-Shirt', 29.99, 'images/graphic.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -730,7 +749,7 @@
                   <span class="text-muted ms-2">(27)</span>
                 </div>
                 <div class="product-price">$79.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Classic Denim Jacket', 79.99, 'images/denim.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -754,7 +773,7 @@
                   <span class="text-muted ms-2">(15)</span>
                 </div>
                 <div class="product-price">$54.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Modern Cargo Pants', 54.99, 'images/cargo.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -778,7 +797,7 @@
                   <span class="text-muted ms-2">(39)</span>
                 </div>
                 <div class="product-price">$59.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Essential Zip-Up Hoodie', 59.99, 'images/zip.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -802,7 +821,7 @@
                   <span class="text-muted ms-2">(22)</span>
                 </div>
                 <div class="product-price">$34.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Premium Cotton T-Shirt', 34.99, 'images/coton.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -840,7 +859,7 @@
                   <span class="text-muted ms-2">(89)</span>
                 </div>
                 <div class="product-price">$44.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Oversized Streetwear Tee', 44.99, 'images/tee.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -865,7 +884,7 @@
                   <span class="text-muted ms-2">(67)</span>
                 </div>
                 <div class="product-price">$79.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Tech Cargo Pants', 79.99, 'images/tech.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -892,7 +911,7 @@
                   <span class="text-muted ms-2">(112)</span>
                 </div>
                 <div class="product-price">$129.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Vintage Varsity Jacket', 129.99, 'images/vintage.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -917,7 +936,7 @@
                   <span class="text-muted ms-2">(45)</span>
                 </div>
                 <div class="product-price">$89.99</div>
-                <a href="#" class="btn btn-primary-custom w-100">Add to Cart</a>
+                <a href="#" class="btn btn-primary-custom w-100" onclick="addToCart('Tech-Wear Hoodie', 89.99, 'images/twh.png')">Add to Cart</a>
               </div>
             </div>
           </div>
@@ -1035,5 +1054,142 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+let cart = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartCount();
+        updateCartModal();
+    }
+});
+
+function addToCart(productName, price, image) {
+    const item = {
+        id: Date.now(),
+        name: productName,
+        price: price,
+        image: image,
+        quantity: 1
+    };
+    
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    updateCartModal();
+    showNotification(`${productName} added to cart!`);
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    updateCartModal();
+    showNotification('Item removed from cart!');
+}
+
+function updateCartCount() {
+    const cartBadge = document.querySelector('.badge');
+    if (cartBadge) {
+        cartBadge.textContent = cart.length;
+    }
+}
+
+function updateCartModal() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    let total = 0;
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="text-center">Your cart is empty</p>';
+        cartTotal.textContent = '0.00';
+        return;
+    }
+
+    cartItems.innerHTML = cart.map(item => {
+        total += item.price * item.quantity;
+        return `
+            <div class="cart-item border-bottom pb-3 mb-3">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <img src="${item.image}" alt="${item.name}" class="img-fluid rounded">
+                    </div>
+                    <div class="col-6">
+                        <h6 class="mb-0">${item.name}</h6>
+                        <p class="mb-0 text-muted">$${item.price.toFixed(2)}</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <button class="btn btn-sm btn-danger" onclick="removeFromCart(${item.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    cartTotal.textContent = total.toFixed(2);
+}
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Add styles
+const style = document.createElement('style');
+style.textContent = `
+    .notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .cart-item img {
+        max-height: 80px;
+        object-fit: cover;
+    }
+
+    .btn-primary-custom {
+        background-color: var(--secondary-color);
+        border: none;
+        color: white;
+    }
+
+    .btn-primary-custom:hover {
+        background-color: #ea580c;
+        color: white;
+    }
+`;
+document.head.appendChild(style);
+</script>
   </body>
 </html>
